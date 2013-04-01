@@ -1,0 +1,30 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <?php echo $this->headTitle(); ?>
+  <?php echo $this->headLink()->prependStylesheet($this->baseUrl('/css/style.css')); ?>
+</head>
+<body>
+<div id="header">
+    <div id="header-logo" style="float: left">
+        <b>Hello World!!!</b>
+    </div>
+    <div id="header-navigation" style="float: right">
+        <a href="<?php echo $this->url(
+            array('controller'=>'guestbook'),
+            'default',
+            true) ?>">Book</a>
+    </div>
+</div>
+
+<div id="container">
+    <?php echo $this->layout()->content ?>
+</div>
+    
+    <div id="footer">
+        <p><?php echo "Leapfrog students!!";?></p>
+    </div>
+
+</body>
+</html>

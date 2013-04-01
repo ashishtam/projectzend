@@ -1,0 +1,7 @@
+<pre>
+<?php
+	echo $this->show;
+
+	print_r( $this->result);
+?>
+</pre>
