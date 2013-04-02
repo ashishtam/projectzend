@@ -9,7 +9,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->doctype('XHTML1_STRICT');
     }
     
-    protected  function _initViewHelpers()
+    protected function _initViewHelpers()
     {
 //        $this->bootstrap('layout');
 //        $layout = $this->getResource('default');
@@ -24,5 +24,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 //        $view->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
 
     }
+    
+    
+    protected function _initRoutes()
+    {
+        $config = new Zend_Config_Ini(APPLICATION_PATH.'/configs/routes.ini');
+        $router = Zend_Controller_Front::getInstance()->getRouter();
+        $router->addConfig($config,'routes');
+    }
+    
 }
 
