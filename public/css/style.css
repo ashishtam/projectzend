@@ -12,14 +12,14 @@ root {
 
 body{
     
-    background-color: #000;
-    color: #fff;
+    background-color: activeborder;
+    color: #000;
 }
 
 #container{
     width: 200px;
     margin: auto;
-    color: activecaption;
+    color: #444444;
     height: auto;
     
 }

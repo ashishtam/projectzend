@@ -32,7 +32,33 @@ class IndexController extends Zend_Controller_Action
             $result = $objUsers->fetchAll()->toArray();
             $this->view->result = $result;
     }
-
+    
+    public function addfileAction()
+    {
+        $form = new Application_Form_AddFile();
+        $this->view->form = $form;
+        
+        
+        if($this->getRequest()->isPost())
+        {
+            $formData = $this->getRequest()->getPost();
+            
+            if($form->isValid($formData))
+            {
+                $values = $form->getValues();
+                
+                echo $values['name']."<br>";
+                echo $values['email'];
+                
+                //echo $formData['name'];
+                
+                
+            }
+            
+          
+        }
+              
+    }
 
 }
 
