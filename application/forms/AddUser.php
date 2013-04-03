@@ -7,7 +7,7 @@
  */
 
 
-class Application_Form_AddFile extends Zend_Form
+class Application_Form_AddUser extends Zend_Form
 {
     
     public  function init()
@@ -17,6 +17,28 @@ class Application_Form_AddFile extends Zend_Form
             
         $this->setMethod('post');
         
+        //add an username element
+        $this->addElement('text','username',array(
+                        'filters'       => array('StringTrim'),
+                        'validators'    => array(
+                                                 
+             array('Alnum', false, array('message' => array(Zend_Validate_Alnum::NOT_ALNUM=>'Username can only contain alphanumerics, with no spaces'))
+                                                )),
+                        'required'      =>   true,
+                        'label'         =>  'UserName'
+
+                ));
+        
+         // Add an password element
+        $this->addElement('password', 'password', array(
+            'label'      => 'Password:',
+            'required'   => true,
+            'filters'    => array('StringTrim'),
+            'validators' => array(
+              array('StringLength', false, array(0,255))
+            )
+        ));
+
         //add an name element
         $this->addElement('text','name',array(
                         'filters'       => array('StringTrim'),
@@ -38,6 +60,15 @@ class Application_Form_AddFile extends Zend_Form
             )
         ));
        
+        // Add an email element
+        $this->addElement('text', 'phoneNumber', array(
+            'label'      => 'Your Phone Number:',
+            'required'   => true,
+            'filters'    => array('StringTrim'),
+            'validators' => array(
+                           )
+        ));
+        
         /*
           // Add a captcha
         $this->addElement('captcha', 'captcha', array(

@@ -33,9 +33,12 @@ class IndexController extends Zend_Controller_Action
             $this->view->result = $result;
     }
     
-    public function addfileAction()
+    public function adduserAction()
     {
-        $form = new Application_Form_AddFile();
+        $form = new Application_Form_AddUser();
+        $objInsertUser = new Application_Model_DbTable_InsertUser();
+        
+        
         $this->view->form = $form;
         
         
@@ -47,10 +50,16 @@ class IndexController extends Zend_Controller_Action
             {
                 $values = $form->getValues();
                 
-                echo $values['name']."<br>";
-                echo $values['email'];
+                $result = $objInsertUser->insert($values);
                 
-                //echo $formData['name'];
+                if($result)
+                {
+                    echo "Successfully Added into Database";
+                }
+                else 
+                {
+                    echo "Error adding to the database";
+                }
                 
                 
             }
