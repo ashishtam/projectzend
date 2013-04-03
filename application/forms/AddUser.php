@@ -43,10 +43,23 @@ class Application_Form_AddUser extends Zend_Form
         $this->addElement('text','name',array(
                         'filters'       => array('StringTrim'),
                         'validators'    => array(
-                                                    array('StringLength', false, array(0,255))
+                                                    array('StringLength', false, array(0,255)),
+                                                    array('Alpha', false)
                                                 ),
                         'required'      =>   true,
                         'label'         =>  'Name'
+
+                ));
+        
+        
+        //add an address element
+        $this->addElement('text','address',array(
+                        'filters'       => array('StringTrim'),
+                        'validators'    => array(
+                                                    array('StringLength', false, array(0,255))
+                                                ),
+                        'required'      =>   true,
+                        'label'         =>  'Address'
 
                 ));
         
@@ -60,7 +73,7 @@ class Application_Form_AddUser extends Zend_Form
             )
         ));
        
-        // Add an email element
+        // Add an phone number element
         $this->addElement('text', 'phoneNumber', array(
             'label'      => 'Your Phone Number:',
             'required'   => true,

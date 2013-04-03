@@ -54,11 +54,11 @@ class IndexController extends Zend_Controller_Action
                 
                 if($result)
                 {
-                    echo "Successfully Added into Database";
+                    echo "Successfully Added into Database"; die;
                 }
                 else 
                 {
-                    echo "Error adding to the database";
+                    echo "Error adding to the database"; die;
                 }
                 
                 
