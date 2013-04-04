@@ -68,6 +68,31 @@ class IndexController extends Zend_Controller_Action
         }
               
     }
+    
+    
+    public function logincheckAction()
+    {
+        $form = new Application_Form_LoginUser();
+        $objInsertUser = new Application_Model_DbTable_Users();
+        
+        
+        $this->view->form = $form;
+        
+        if($this->getRequest()->isPost())
+        {
+            $formData = $this->getRequest()->getPost();
+            
+            if($form->isValid($formData))
+            {
+                $values = $form->getValues();
+                
+                
+                
+            }
+            
+          
+        }
+    }
 
 }
 
